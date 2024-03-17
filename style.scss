@@ -1,0 +1,261 @@
+/* Mixins */
+@mixin flex($width, $height, $dir, $cont) {
+  width: $width;
+  height: $height;
+  display: flex;
+  justify-content: $cont; 
+  align-items: center; 
+  flex-direction: $dir;
+}
+
+@mixin text-styling($size, $weight, $color ) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+/* Base styles */
+body {
+  gap: 20px;
+  @include flex(90%, 90vh, row, center);
+}
+
+nav {
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: absolute; 
+  top: 7%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  @include flex(90%, 50px, center, space-between);
+  border-radius: 10px;
+  gap: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+    
+  button {
+    @include text-styling(20px, 900, white);
+    text-decoration: none;
+    color: #d7edf7;
+    background-color: transparent;
+    border: none;
+    width: 150px;
+    height: max-content;
+    cursor: pointer;
+  }
+}
+
+section {
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: absolute; 
+  top: 55%;
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  border-radius: 10px;
+  @include flex(90%, 80%, center, none);
+}
+
+/* Common styles for sections */
+.home, .project, .skills, .about {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 50px;
+  gap: 20px;
+  padding: 10px;  
+
+  div {
+    @include flex(90%, 80%, column, center);
+    p{
+      width: auto;
+    }
+  }
+
+  img {
+    width: 100%; /* Adjust as needed */
+    max-width: 400px; /* Limit image width */
+    height: auto; /* Maintain aspect ratio */
+    padding: 50px;
+  }
+
+  h1 {
+    @include text-styling(35px, 900, #667eea);
+    margin-right: 50px; 
+    top: 0%;
+  }
+  h2 {
+    @include text-styling(20px, 900, #667eea);
+    margin-right: 50px; 
+    top: 0%;
+    bottom: 0%;
+  }
+
+  p {
+    @include text-styling(15px, 900, black);
+    margin-right: 50px;
+    width: 100%; /* Adjust as needed */
+  }
+
+  button {
+    @include text-styling(1.5rem, 900, white);
+    width: 100%; /* Adjust as needed */
+    height: 3rem;
+    font-weight: 900;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(to left, white 50%, #667eea 50%, #764ba2 100%);
+    background-size: 200%;
+    background-position: 100%;
+    transition: all ease 0.6s;
+  }
+
+  span {
+    @include text-styling(1.5rem, 900, white);
+    background: linear-gradient(to right, white 50%, #667eea 50%, #764ba2 100%);
+    background-size: 200%;
+    background-position: 100%;
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: all ease 0.6s;
+  }
+
+  button:hover, button:hover span {
+    background-position: 0%;
+  }
+  a{
+    text-decoration: none;
+    @include text-styling(1rem, 900, white);
+    background: linear-gradient(to right, white 50%, #667eea 50%, #764ba2 100%);
+    background-size: 200%;
+    background-position: 100%;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  .social{
+    @include flex(max-content,max-content ,row ,space-between );
+    img{
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  @include flex(90%, 80%, center, space-between);
+}
+.home{
+  z-index: 1;
+}
+.skills , .about , .project{
+  z-index: 0;
+}
+
+/* Media queries for responsiveness */
+
+
+@media screen and (max-width: 360px) {
+  body {
+    padding: auto;
+    @include flex(100%, auto, column, center); 
+  }
+
+  nav {
+    top: 5%; 
+    position: fixed;
+    margin-bottom: 10px;
+    z-index: 9999; 
+    @include flex(100%, auto, row, center); 
+    gap: 20px; 
+  }
+
+  section {
+    top: 60%; 
+    @include flex(100%, auto, column, center); 
+  }
+
+  .home, .project, .skills, .about {
+    top: 100px;
+    img{
+      height: 300px;
+      width: 300px;
+    }
+    margin-top: 30px;
+    width: 90%; 
+    padding: 20px;
+    @include flex(100%, auto, column, center); 
+  }
+  .about{
+    @include flex(100%, auto, column, center); 
+    .social{
+      @include flex(50%,50% ,column ,center );
+      gap: 0%;
+      img{
+      height: 24px;
+      width: 24px;
+    }
+    }
+    img{
+       height: 200px;
+       width: 200px;
+    }
+    .pr{
+      opacity: 0;
+    }
+}
+
+}
+@media screen and (max-width: 420px) {
+  body {
+    padding: auto;
+    @include flex(100%, auto, column, center); 
+  }
+
+  nav {
+    top: 5%; 
+    position: fixed;
+    margin-bottom: 10px;
+    z-index: 9999; 
+    @include flex(100%, auto, row, center); 
+    gap: 20px; 
+  }
+
+  section {
+    top: 60%; 
+    @include flex(100%, auto, column, center); 
+  }
+
+  .home, .project, .skills, .about {
+    top: 100px;
+    img{
+      height: 300px;
+      width: 300px;
+    }
+    margin-top: 30px;
+    width: 90%; 
+    padding: 20px;
+    @include flex(100%, auto, column, center); 
+  }
+  .about{
+    @include flex(100%, auto, column, center); 
+    .social{
+      @include flex(50%,50% ,column ,center );
+      gap: 100%;
+      img{
+        height: 24px;
+        width: 24px;
+      }
+    }
+    .pr{
+      opacity: 0;
+      height: 100px;
+      width: 100px;
+    }
+    
+  }
+  .project{
+    img{
+      height: 250px;
+      width: 250px;
+    }
+  }
+}

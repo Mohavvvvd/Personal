@@ -1,0 +1,306 @@
+/* Mixins */
+/* Base styles */
+body {
+  gap: 20px;
+  width: 90%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row; }
+
+nav {
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: center;
+  border-radius: 10px;
+  gap: 40px;
+  padding-left: 10px;
+  padding-right: 10px; }
+  nav button {
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+    text-decoration: none;
+    color: #d7edf7;
+    background-color: transparent;
+    border: none;
+    width: 150px;
+    height: max-content;
+    cursor: pointer; }
+
+section {
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  width: 90%;
+  height: 80%;
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  flex-direction: center; }
+
+/* Common styles for sections */
+.home, .project, .skills, .about {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 50px;
+  gap: 20px;
+  padding: 10px;
+  width: 90%;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: center; }
+  .home div, .project div, .skills div, .about div {
+    width: 90%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .home div p, .project div p, .skills div p, .about div p {
+      width: auto; }
+  .home img, .project img, .skills img, .about img {
+    width: 100%;
+    /* Adjust as needed */
+    max-width: 400px;
+    /* Limit image width */
+    height: auto;
+    /* Maintain aspect ratio */
+    padding: 50px; }
+  .home h1, .project h1, .skills h1, .about h1 {
+    font-size: 35px;
+    font-weight: 900;
+    color: #667eea;
+    margin-right: 50px;
+    top: 0%; }
+  .home h2, .project h2, .skills h2, .about h2 {
+    font-size: 20px;
+    font-weight: 900;
+    color: #667eea;
+    margin-right: 50px;
+    top: 0%;
+    bottom: 0%; }
+  .home p, .project p, .skills p, .about p {
+    font-size: 15px;
+    font-weight: 900;
+    color: black;
+    margin-right: 50px;
+    width: 100%;
+    /* Adjust as needed */ }
+  .home button, .project button, .skills button, .about button {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: white;
+    width: 100%;
+    /* Adjust as needed */
+    height: 3rem;
+    font-weight: 900;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(to left, white 50%, #667eea 50%, #764ba2 100%);
+    background-size: 200%;
+    background-position: 100%;
+    transition: all ease 0.6s; }
+  .home span, .project span, .skills span, .about span {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: white;
+    background: linear-gradient(to right, white 50%, #667eea 50%, #764ba2 100%);
+    background-size: 200%;
+    background-position: 100%;
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: all ease 0.6s; }
+  .home button:hover, .home button:hover span, .project button:hover, .project button:hover span, .skills button:hover, .skills button:hover span, .about button:hover, .about button:hover span {
+    background-position: 0%; }
+  .home a, .project a, .skills a, .about a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 900;
+    color: white;
+    background: linear-gradient(to right, white 50%, #667eea 50%, #764ba2 100%);
+    background-size: 200%;
+    background-position: 100%;
+    -webkit-background-clip: text;
+    color: transparent; }
+  .home .social, .project .social, .skills .social, .about .social {
+    width: max-content;
+    height: max-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row; }
+    .home .social img, .project .social img, .skills .social img, .about .social img {
+      height: 24px;
+      width: 24px; }
+
+.home {
+  z-index: 1; }
+
+.skills, .about, .project {
+  z-index: 0; }
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 360px) {
+  body {
+    padding: auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+
+  nav {
+    top: 5%;
+    position: fixed;
+    margin-bottom: 10px;
+    z-index: 9999;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px; }
+
+  section {
+    top: 60%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+
+  .home, .project, .skills, .about {
+    top: 100px;
+    margin-top: 30px;
+    width: 90%;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .home img, .project img, .skills img, .about img {
+      height: 300px;
+      width: 300px; }
+
+  .about {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .about .social {
+      width: 50%;
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 0%; }
+      .about .social img {
+        height: 24px;
+        width: 24px; }
+    .about img {
+      height: 200px;
+      width: 200px; }
+    .about .pr {
+      opacity: 0; } }
+@media screen and (max-width: 420px) {
+  body {
+    padding: auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+
+  nav {
+    top: 5%;
+    position: fixed;
+    margin-bottom: 10px;
+    z-index: 9999;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px; }
+
+  section {
+    top: 60%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+
+  .home, .project, .skills, .about {
+    top: 100px;
+    margin-top: 30px;
+    width: 90%;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .home img, .project img, .skills img, .about img {
+      height: 300px;
+      width: 300px; }
+
+  .about {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .about .social {
+      width: 50%;
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 100%; }
+      .about .social img {
+        height: 24px;
+        width: 24px; }
+    .about .pr {
+      opacity: 0;
+      height: 100px;
+      width: 100px; }
+
+  .project img {
+    height: 250px;
+    width: 250px; } }
+
+/*# sourceMappingURL=style.css.map */
